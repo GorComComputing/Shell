@@ -34,11 +34,11 @@ int (*cmd_func[]) (char **) = {
 
 int main (int argc, char **argv) { // Поправить аргументы char
 	// Инициализация
-	printf("Bash started. This is command line interpretator\n"); // Печатает название программы
+	printf("Shell started. This is command line interpretator\n"); // Печатает название программы	
 	// Главный цикл
 	loop();
 	// Завершение работы
-	printf("Bash ended\n"); // Сообщение о завершении программы
+	printf("Shell ended\n"); // Сообщение о завершении программы
 	return EXIT_SUCCESS;
 }
 
@@ -74,7 +74,7 @@ char *read_line(void) {
 	
 	// Проверяет, выделилась ли память под буфер ввода
 	if (!buffer) {
-		fprintf(stderr, "Bash: allocation error\n");
+		fprintf(stderr, "Shell: allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 	
@@ -99,7 +99,7 @@ char *read_line(void) {
 			
 			// Проверяет, выделилась ли память под буфер ввода
 			if (!buffer) {
-				fprintf(stderr, "Bash: allocation error\n");
+				fprintf(stderr, "Shell: allocation error\n");
 				exit(EXIT_FAILURE);	
 			}
 		}
@@ -116,7 +116,7 @@ char **split_line(char *line) {
 	
 	// Проверяет, выделилась ли память
 	if (!tokens) {
-		fprintf(stderr, "Bash: allocation error\n");
+		fprintf(stderr, "Shell: allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 	
@@ -134,7 +134,7 @@ char **split_line(char *line) {
 			
 			// Проверяет, выделилась ли память
 			if (!tokens) {
-				fprintf(stderr, "Bash: allocation error\n");
+				fprintf(stderr, "Shell: allocation error\n");
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -186,12 +186,12 @@ int cmd_cd(char **args) {
 	// Проверяем, есть ли второй аргумент
 	if (args[1] == NULL) {
 		// Сообщение об ошибке
-		fprintf(stderr, "Bash: expected argument to \"cd\"\n");
+		fprintf(stderr, "Shell: expected argument to \"cd\"\n");
 	}
 	else {
 		// Вызываем функцию смены каталога
 		//if (chdir(args[1]) != 0) {
-		//	perror("Bash");
+		//	perror("Shell");
 		//}
 	}
 	return 1;
@@ -201,7 +201,7 @@ int cmd_cd(char **args) {
 // Команда help
 int cmd_help(char **args) {
 	int i;
-	printf("Bash version 0.0.1\n");
+	printf("Shell version 0.0.1\n");
 	printf("Copyright (c) 2022 Evgeny Goryachev Gor.Com\n");
 	printf("Type program names and arguments, and hit enter.\n");
 	printf("The following are built in:\n");
